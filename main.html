@@ -1,0 +1,53 @@
+<html>
+<body>
+<h1>Payroll System</h1>
+<form action="" method="post">
+Enter Payroll_id : <br>
+<input type="text" name="e1"><br>
+Enter Name : <br>
+<input type="text" name="n1"><br>
+Enter Role : <br>
+<input type="text" name="a1"><br>
+Enter Address : <br>
+<input type="text" name="d1"><br>
+Enter Salary : <br>
+<input type="text" name="s1"><br>
+Enter Loan : <br>
+<input type="text" name="l1"><br>
+Enter Tax : <br>
+<input type="text" name="t1"><br>
+Enter Phone_No : <br>
+<input type="text" name="p1"><br>
+Enter Email : <br>
+<input type="text" name="m1"><br>
+<input type="submit" name="submit" value="submit">
+</form>
+<?php
+$connection=mysqli_connect("localhost","root","","subtraction");
+if (isset($_POST['submit']))
+{
+	$Payroll_id=$_POST['e1'];
+	$Name=$_POST['n1'];
+	$Role=$_POST['a1'];
+	$Address=$_POST['d1'];
+	$Salary=$_POST['s1'];
+	$Loan=$_POST['l1'];
+	$Tax=$_POST['t1'];
+	$Phone_No=$_POST['p1'];
+	$Email=$_POST['m1'];
+	$sql="insert into information (Payroll_id,Name,Role,Address,Salary,Loan,Tax,Phone_No,Email) values ('$Payroll_id','$Name','$Role','$Address','$Salary','$Loan','$Tax','$Phone_No','$Email')";
+	$result=mysqli_query($connection,$sql);
+	
+	if ($result)
+	{
+		echo "data inserted";
+	}
+	else
+	{
+		echo "not inserted"; 
+	}
+}
+?>
+
+</body>
+</html>
